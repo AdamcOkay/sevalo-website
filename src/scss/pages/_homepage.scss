@@ -1,0 +1,28 @@
+@forward "../vendors/swiper";
+@forward "../base/base";
+@forward "../components/buttons";
+@forward "../components/slider";
+@forward "../layout/header";
+@forward "../layout/advantages";
+@forward "../layout/main-grid";
+@forward "../layout/presentation";
+@forward "../layout/branches";
+@forward "../layout/footer";
+
+@use "../abstracts/variables";
+
+.welcome {
+  padding-top: 15px;
+
+  @media only screen and (min-width: variables.$xl) {
+    padding-top: 0;
+  }
+}
+
+.catalog {
+  padding: 40px 0 50px;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+}

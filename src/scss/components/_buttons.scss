@@ -1,0 +1,37 @@
+.ui-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  padding: 15px 15px;
+  border-radius: 50px;
+  background: var(--ui-yellow);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 15px;
+  color: #000;
+
+  .arrow {
+    width: 32px;
+    margin-right: 5px;
+  }
+
+  .arrow svg * {
+    fill: #000;
+  }
+
+  &--white {
+    background: #fff;
+  }
+
+  &--black {
+    background: #000;
+    color: #fff;
+
+    .arrow svg * {
+      fill: #fff;
+    }
+  }
+}

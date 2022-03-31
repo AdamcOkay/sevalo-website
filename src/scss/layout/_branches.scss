@@ -1,0 +1,41 @@
+@use "../abstracts/mixins";
+
+.branches {
+  padding: 40px 0 50px;
+}
+
+.branch-info {
+  h2 {
+    padding-top: 30px;
+    margin-bottom: 20px;
+  }
+}
+
+.branch-list {
+  @include mixins.list-reset;
+
+  li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 133%;
+
+    &::before {
+      content: "";
+      display: block;
+      flex-basis: 40px;
+      flex-grow: 0;
+      flex-shrink: 0;
+      height: 3px;
+      background: var(--ui-yellow);
+      margin-right: 15px;
+    }
+
+    &:last-of-type {
+      padding-bottom: 10px;
+    }
+  }
+}

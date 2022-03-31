@@ -1,0 +1,76 @@
+@use "../abstracts/variables";
+
+.swiper {
+  .swiper-slide {
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+
+    @media only screen and (min-width: variables.$xl) {
+      transform: scale(0.98);
+    }
+  }
+  .swiper-slide-active {
+    transform: scale(1);
+  }
+}
+
+.main-slider {
+  padding-bottom: 15px;
+}
+
+.main-slide {
+  --max-width-sm: 540px;
+  --max-width-md: 720px;
+  --max-width-lg: 960px;
+  --max-width-xl: 1200px;
+  width: calc(100% - 30px);
+  height: auto;
+  background: var(--ui-black);
+  border-radius: 10px;
+  overflow: hidden;
+  color: #fff;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+
+  @media only screen and (min-width: variables.$sm) {
+    max-width: var(--max-width-sm);
+  }
+
+  @media only screen and (min-width: variables.$md) {
+    max-width: var(--max-width-md);
+  }
+
+  @media only screen and (min-width: variables.$lg) {
+    max-width: var(--max-width-lg);
+  }
+
+  @media only screen and (min-width: variables.$xl) {
+    max-width: var(--max-width-xl);
+  }
+}
+
+.slide-bg {
+  img {
+    width: 100%;
+    vertical-align: middle;
+  }
+}
+
+.slide-content {
+  padding: 20px 15px 25px;
+}
+
+.slide-title {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 100%;
+  opacity: 0.9;
+}
+
+.slide-text {
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 150%;
+  opacity: 0.8;
+}

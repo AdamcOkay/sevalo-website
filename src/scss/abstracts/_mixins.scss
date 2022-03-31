@@ -1,0 +1,57 @@
+@use "variables";
+
+@mixin container-styles {
+  --max-width-sm: 540px;
+  --max-width-md: 720px;
+  --max-width-lg: 960px;
+  --max-width-xl: 1240px;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  z-index: 2;
+
+  @media only screen and (min-width: variables.$sm) {
+    max-width: var(--max-width-sm);
+  }
+
+  @media only screen and (min-width: variables.$md) {
+    max-width: var(--max-width-md);
+  }
+
+  @media only screen and (min-width: variables.$lg) {
+    max-width: var(--max-width-lg);
+    padding: 0 20px;
+  }
+
+  @media only screen and (min-width: variables.$xl) {
+    max-width: var(--max-width-xl);
+  }
+}
+
+@mixin button-reset {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+@mixin list-reset {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin disable-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+@mixin hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

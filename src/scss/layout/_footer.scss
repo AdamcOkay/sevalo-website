@@ -1,0 +1,70 @@
+@use "../abstracts/mixins";
+
+.footer-list {
+  padding: 30px 0 40px;
+  border-top: 1px solid rgba(#fff, 0.25);
+
+  ul {
+    @include mixins.list-reset;
+    margin-bottom: 16px;
+  }
+
+  a {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 32px;
+    color: #fff;
+  }
+
+  .contacts-title {
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 32px;
+  }
+
+  .contacts-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+
+    .icon {
+      height: 26px;
+      margin-right: 10px;
+    }
+  }
+
+  .social-list {
+    display: flex;
+  }
+
+  .social-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(#000, 0.25);
+
+    &:not(:last-of-type) {
+      margin-right: 10px;
+    }
+  }
+}
+
+.copyright-info {
+  padding-bottom: 30px;
+
+  p {
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+
+    a {
+      font-weight: 600;
+      color: #fff;
+    }
+  }
+}

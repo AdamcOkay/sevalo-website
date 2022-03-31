@@ -1,0 +1,27 @@
+@use "../abstracts/mixins";
+
+.no-scroll {
+  @include mixins.disable-scroll;
+}
+
+.no-scrollbar {
+  @include mixins.hide-scrollbar;
+}
+
+.container {
+  @include mixins.container-styles;
+}
+
+.yellow-wrapper {
+  background: var(--ui-yellow);
+  border-radius: 0px 0px 15px 15px;
+  color: #000;
+}
+
+.button-reset {
+  @include mixins.button-reset;
+}
+
+[data-shown="false"] {
+  display: none !important;
+}

@@ -1,0 +1,43 @@
+@use "../abstracts/variables";
+
+.advantages-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 40px 0 30px;
+
+  &__item {
+    display: flex;
+    padding-bottom: 18px;
+  }
+
+  .icon {
+    flex-basis: 40px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 40px;
+    margin-right: 15px;
+  }
+
+  .advantage-title {
+    padding-bottom: 5px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .advantage-text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  @media only screen and (min-width: variables.$lg) {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 30px;
+    row-gap: 30px;
+
+    &__item {
+      padding-bottom: 0;
+    }
+  }
+}
