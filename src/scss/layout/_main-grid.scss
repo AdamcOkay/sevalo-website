@@ -4,15 +4,29 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+
+  @media only screen and (min-width: variables.$md) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .catalog-item {
+  display: block;
   position: relative;
 
   @media only screen and (max-width: variables.$md) {
     &:nth-child(3) {
       grid-row: 4/4;
     }
+  }
+
+  .item-bg {
+    line-height: 0;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
   }
 
   .item-title {
@@ -24,13 +38,24 @@
     line-height: 123%;
     text-transform: uppercase;
     color: #fff;
+
+    @media only screen and (min-width: variables.$lg) {
+      left: 20px;
+      font-size: 26px;
+      line-height: 32px;
+    }
   }
 }
 
 .catalog-item--wide {
-  grid-column: 1/3;
+  grid-column-end: span 2;
 
   .item-title {
     font-size: 15px;
+
+    @media only screen and (min-width: variables.$lg) {
+      font-size: 26px;
+      line-height: 32px;
+    }
   }
 }

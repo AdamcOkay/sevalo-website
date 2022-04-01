@@ -1,8 +1,22 @@
+@use "../abstracts/variables";
+
 .presentation {
   padding: 15px;
   background: var(--ui-yellow);
   border-radius: 15px;
   color: #000;
+
+  @media only screen and (min-width: variables.$lg) {
+    display: flex;
+    align-items: center;
+    padding: 30px 45px;
+
+    .ui-button {
+      flex-basis: max-content;
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+  }
 }
 
 .presentation-info {
@@ -16,5 +30,14 @@
     font-size: 14px;
     line-height: 18px;
     font-weight: 400;
+  }
+
+  @media only screen and (min-width: variables.$lg) {
+    margin: 0 24px 0 0;
+
+    p {
+      font-size: 16px;
+      line-height: 24px;
+    }
   }
 }

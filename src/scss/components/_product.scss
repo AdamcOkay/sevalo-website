@@ -1,0 +1,105 @@
+@use "../abstracts/variables";
+
+.product-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding-bottom: 60px;
+
+  @media only screen and (min-width: variables.$xl) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .product-list__item {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+    &:not(:last-of-type) {
+      margin-bottom: 20px;
+    }
+
+    @media only screen and (min-width: variables.$sm) {
+      flex-direction: row;
+    }
+
+    @media only screen and (min-width: variables.$md) {
+      padding: 20px 20px 20px 20px;
+
+      &:not(:last-of-type) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .product-image {
+    width: 100%;
+    margin: 0 auto 10px;
+    border-radius: 15px;
+    overflow: hidden;
+
+    @media only screen and (min-width: variables.$sm) {
+      margin: 0 20px 0 0;
+    }
+
+    @media only screen and (min-width: variables.$lg) {
+      flex-basis: 285px;
+      flex-shrink: 0;
+      flex-grow: 0;
+    }
+  }
+
+  img {
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  .product-info {
+    @media only screen and (min-width: variables.$sm) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .product-title {
+    margin-bottom: 10px;
+    font-weight: 20px;
+    font-weight: 900;
+    line-height: 24px;
+
+    @media only screen and (min-width: variables.$xl) {
+      font-size: 23px;
+      line-height: 32px;
+    }
+  }
+
+  .product-text {
+    margin-bottom: auto;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+
+    @media only screen and (min-width: variables.$xl) {
+      font-size: 18px;
+      line-height: 32px;
+    }
+  }
+
+  .product-link {
+    display: block;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--ui-yellow);
+
+    svg * {
+      fill: var(--ui-yellow);
+    }
+
+    @media only screen and (min-width: variables.$xl) {
+      font-size: 14px;
+      line-height: 32px;
+    }
+  }
+}
