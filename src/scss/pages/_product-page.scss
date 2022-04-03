@@ -1,0 +1,198 @@
+@use "../abstracts/variables";
+
+.product-page {
+  padding-top: 32px;
+
+  @media only screen and (min-width: variables.$lg) {
+    display: grid;
+    grid-template-areas: "info fixed";
+    padding-top: 40px;
+  }
+}
+
+.product-fixed {
+  grid-area: fixed;
+  max-width: 590px;
+
+  @media only screen and (min-width: variables.$lg) {
+    position: fixed;
+    left: calc(50% + 20px);
+  }
+}
+
+.product-info {
+  grid-area: info;
+  max-width: 590px;
+}
+
+.product-action {
+  margin-bottom: 30px;
+
+  @media only screen and (min-width: variables.$lg) {
+    margin-bottom: 0;
+    padding: 16px 28px;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+  }
+}
+
+.product-name {
+  margin-bottom: 8px;
+  font-size: 24px;
+  line-height: 130%;
+  text-transform: unset;
+
+  @media only screen and (min-width: variables.$lg) {
+    font-size: 40px;
+    line-height: 52px;
+  }
+}
+
+.payment-title {
+  padding: 15px 0;
+  font-size: 16px;
+  line-height: 20px;
+  opacity: 0.75;
+}
+
+.payment-methods {
+  padding-bottom: 5px;
+  margin-bottom: 8px;
+}
+
+.radio-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 20px;
+  user-select: none;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark {
+    display: block;
+    position: relative;
+    flex-basis: 26px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 26px;
+    margin-right: 15px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+  }
+
+  &:hover input ~ .checkmark {
+    border-color: var(--ui-yellow);
+  }
+
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--ui-yellow);
+  }
+
+  input:checked ~ .checkmark {
+    border-color: var(--ui-yellow);
+  }
+
+  input:checked ~ .checkmark:after {
+    display: block;
+  }
+}
+
+.product-links {
+  margin-top: 20px;
+  padding: 20px 12px;
+  border-top: 1px solid rgba(#fff, 0.2);
+
+  .link-button:not(:last-child) {
+    margin-bottom: 10px;
+
+    @media only screen and (min-width: variables.$xl) {
+      margin: 0 20px 0 0;
+    }
+  }
+
+  @media only screen and (min-width: variables.$lg) {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+.product-specifics {
+  padding: 20px 12px;
+  border-top: 1px solid rgba(#fff, 0.2);
+
+  .img-box {
+    line-height: 0;
+    border-bottom: 1px solid rgba(#fff, 0.2);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+
+    img {
+      border-radius: 15px;
+    }
+  }
+
+  .specific-title {
+    margin-bottom: 12px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    text-transform: unset;
+  }
+
+  ul {
+    padding-left: 12px;
+    list-style: none;
+    font-size: 16px;
+    line-height: 24px;
+
+    li {
+      margin-bottom: 5px;
+
+      @media only screen and (min-width: variables.$lg) {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.similar {
+  padding: 20px 0;
+  border-top: 1px solid rgba(#fff, 0.2);
+
+  .product-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.similar-title {
+  padding-top: 12px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  text-transform: unset;
+}

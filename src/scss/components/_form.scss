@@ -1,0 +1,43 @@
+@use "../abstracts/variables";
+input,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 20px 16px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+  color: #fff;
+}
+
+textarea {
+  width: 100%;
+  resize: vertical;
+}
+
+label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+
+  span {
+    color: var(--ui-yellow);
+  }
+}
+
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  margin-bottom: 25px;
+
+  @media only screen and (min-width: variables.$lg) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

@@ -9,16 +9,93 @@
       transform: scale(0.98);
     }
   }
+
   .swiper-slide-active {
     transform: scale(1);
+  }
+
+  .pagination-wrapper {
+    --max-width-sm: 540px;
+    --max-width-md: 720px;
+    --max-width-lg: 960px;
+    --max-width-xl: 1200px;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    display: none;
+    width: calc(100% - 30px);
+    padding-right: 102px;
+    transform: translateX(-50%);
+    z-index: 5;
+
+    @media only screen and (min-width: variables.$sm) {
+      max-width: var(--max-width-sm);
+    }
+
+    @media only screen and (min-width: variables.$md) {
+      max-width: var(--max-width-md);
+    }
+
+    @media only screen and (min-width: variables.$lg) {
+      display: flex;
+      max-width: var(--max-width-lg);
+    }
+
+    @media only screen and (min-width: variables.$xl) {
+      max-width: var(--max-width-xl);
+    }
+  }
+
+  .swiper-pagination {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    margin-left: auto;
+    border-radius: 5px;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    color: #000;
+
+    &-bullet {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background-color: #fff;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 900;
+      line-height: 20px;
+
+      &:hover {
+        background-color: var(--ui-yellow);
+      }
+      &:not(:last-of-type) {
+        border-right: 1px solid #efefef;
+      }
+    }
+
+    &-bullet-active {
+      pointer-events: none;
+      color: #bfbfbf;
+    }
   }
 }
 
 .main-slider {
   padding-bottom: 15px;
 
+  .ui-button {
+    display: none;
+  }
+
   @media only screen and (min-width: variables.$lg) {
-    padding-bottom: 25px;
+    padding-bottom: 65px;
+
+    .ui-button {
+      display: flex;
+    }
   }
 }
 
@@ -89,8 +166,10 @@
   opacity: 0.9;
 
   @media only screen and (min-width: variables.$lg) {
+    opacity: 1;
     margin-bottom: 20px;
     font-size: 40px;
+    font-weight: 900;
     line-height: 40px;
   }
 
@@ -108,6 +187,7 @@
   opacity: 0.8;
 
   @media only screen and (min-width: variables.$lg) {
+    opacity: 1;
     margin-bottom: 30px;
     font-size: 20px;
     line-height: 30px;

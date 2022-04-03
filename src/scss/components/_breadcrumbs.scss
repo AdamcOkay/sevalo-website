@@ -1,0 +1,19 @@
+.breadcrumbs {
+  display: flex;
+  opacity: 0.5;
+  margin-bottom: 8px;
+
+  a {
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    &:not(:last-of-type)::after {
+      content: "/";
+      margin: 0 3px;
+    }
+  }
+}

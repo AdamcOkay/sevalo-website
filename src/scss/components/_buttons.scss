@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: max-content;
+  width: fit-content;
   padding: 15px 15px;
   border-radius: 50px;
   background: var(--ui-yellow);
@@ -42,5 +42,27 @@
     padding: 15px 25px;
     font-size: 15px;
     line-height: 24px;
+  }
+}
+
+.link-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 10px 20px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #fff;
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
   }
 }

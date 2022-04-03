@@ -68,18 +68,19 @@
     line-height: 24px;
 
     @media only screen and (min-width: variables.$xl) {
-      font-size: 23px;
+      font-size: 24px;
       line-height: 32px;
     }
   }
 
   .product-text {
-    margin-bottom: auto;
+    margin-bottom: 20px;
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
 
     @media only screen and (min-width: variables.$xl) {
+      margin-bottom: auto;
       font-size: 18px;
       line-height: 32px;
     }

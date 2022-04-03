@@ -22,10 +22,16 @@ body {
 
 h1 {
   font-size: 30px;
+  font-weight: 900;
   line-height: 35px;
-  font-weight: 700;
+  text-transform: uppercase;
 }
-
+.page-title {
+  @media only screen and (min-width: variables.$lg) {
+    font-size: 40px;
+    line-height: 52px;
+  }
+}
 h2 {
   font-size: 24px;
   font-weight: 900;

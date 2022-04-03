@@ -1,0 +1,106 @@
+@forward "../components/form";
+
+@use "../abstracts/variables";
+
+.forms-page {
+  padding: 44px 0 60px;
+
+  @media only screen and (min-width: variables.$lg) {
+    padding: 44px 72px 120px;
+
+    h1,
+    .form-wrapper {
+      padding: 0 30px;
+    }
+  }
+
+  h1 {
+    margin-bottom: 36px;
+  }
+}
+
+.payform {
+  .form-product {
+    display: grid;
+    grid-template-areas:
+      "form-thumb form-name"
+      "form-method form-method"
+      "form-amount form-amount";
+    gap: 20px;
+    align-items: center;
+    position: relative;
+    padding: 30px;
+    margin-bottom: 45px;
+    background: var(--ui-yellow);
+    border-radius: 15px;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.25);
+    color: #000;
+
+    input {
+      background: none;
+      border: none;
+      outline: none;
+      color: #000;
+    }
+  }
+
+  .form-thumb {
+    grid-area: form-thumb;
+    line-height: 0;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.25);
+  }
+
+  .form-name {
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 120%;
+    grid-area: form-name;
+  }
+
+  .form-method {
+    grid-area: form-method;
+    text-align: center;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 500;
+  }
+
+  .form-amount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: form-amount;
+
+    input {
+      width: 48px;
+      margin: 0 5px;
+      text-align: center;
+      font-weight: 900;
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    .control-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #fff;
+
+      &:disabled {
+        pointer-events: none;
+        opacity: 0.25;
+      }
+    }
+  }
+
+  .delete-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}
