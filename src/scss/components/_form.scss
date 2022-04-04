@@ -16,6 +16,7 @@ textarea {
 
 textarea {
   width: 100%;
+  min-height: 150px;
   resize: vertical;
 }
 
@@ -39,5 +40,31 @@ label {
 
   @media only screen and (min-width: variables.$lg) {
     grid-template-columns: 1fr 1fr 1fr;
+
+    .input-col--wide {
+      grid-column-end: span 3;
+    }
+  }
+}
+
+.send-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 24px;
+  padding-top: 12px;
+
+  @media only screen and (min-width: variables.$lg) {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .ui-button {
+    width: 100%;
+  }
+
+  .send-agreement {
+    opacity: 0.5;
+    font-size: 14px;
+    line-height: 20px;
   }
 }

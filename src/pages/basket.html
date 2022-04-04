@@ -65,29 +65,31 @@
               <!-- prettier-ignore -->
               <input type="text" class="form-method" name="payment-method" value="100% предоплата" readonly required>
               <div class="form-amount">
+                <div class="controls">
+                  <!-- prettier-ignore -->
+                  <button class="control-button js-control-button" data-behavior="decrement" type="button" disabled>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="4" viewBox="0 0 20 4" fill="none">
+                      <rect x="20" width="4" height="20" rx="2" transform="rotate(90 20 0)" fill="black"/>
+                    </svg>
+                  </button>
+                  <!-- prettier-ignore -->
+                  <input type="text" name="amount" value="1" class="form-amount js-product-amount" readonly required>
+                  <!-- prettier-ignore -->
+                  <button class="control-button js-control-button" data-behavior="increment" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                      <rect x="8" width="4" height="20" rx="2" fill="black"/>
+                      <rect x="20" y="8" width="4" height="20" rx="2" transform="rotate(90 20 8)" fill="black"/>
+                    </svg>
+                  </button>
+                </div>
                 <!-- prettier-ignore -->
-                <button class="control-button js-control-button" data-behavior="decrement" type="button" disabled>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="4" viewBox="0 0 20 4" fill="none">
-                    <rect x="20" width="4" height="20" rx="2" transform="rotate(90 20 0)" fill="black"/>
-                  </svg>
-                </button>
-                <!-- prettier-ignore -->
-                <input type="text" name="amount" value="1" class="form-amount js-product-amount" readonly required>
-                <!-- prettier-ignore -->
-                <button class="control-button js-control-button" data-behavior="increment" type="button">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <rect x="8" width="4" height="20" rx="2" fill="black"/>
-                    <rect x="20" y="8" width="4" height="20" rx="2" transform="rotate(90 20 8)" fill="black"/>
+                <button type="button" class="delete-button js-delete-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="29" height="30" viewBox="0 0 29 30" fill="none">
+                    <rect x="5.65625" y="9.34326" width="4" height="20" rx="2" transform="rotate(-45 5.65625 9.34326)" fill="black"/>
+                    <rect x="19.7988" y="6.51465" width="4" height="20" rx="2" transform="rotate(45 19.7988 6.51465)" fill="black"/>
                   </svg>
                 </button>
               </div>
-              <!-- prettier-ignore -->
-              <button type="button" class="delete-button js-delete-button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="29" height="30" viewBox="0 0 29 30" fill="none">
-                  <rect x="5.65625" y="9.34326" width="4" height="20" rx="2" transform="rotate(-45 5.65625 9.34326)" fill="black"/>
-                  <rect x="19.7988" y="6.51465" width="4" height="20" rx="2" transform="rotate(45 19.7988 6.51465)" fill="black"/>
-                </svg>
-              </button>
             </div>
             <div class="form-wrapper">
               <div class="input-row">
@@ -112,7 +114,7 @@
                 </div>
               </div>
               <div class="input-row">
-                <div class="input-col">
+                <div class="input-col input-col--wide">
                   <label for="additional-info"
                     >Дополнительная информация:</label
                   >
