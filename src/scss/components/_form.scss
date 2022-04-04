@@ -40,10 +40,15 @@ label {
 
   @media only screen and (min-width: variables.$lg) {
     grid-template-columns: 1fr 1fr 1fr;
+    align-items: end;
 
     .input-col--wide {
       grid-column-end: span 3;
     }
+  }
+
+  .ui-button {
+    width: 100%;
   }
 }
 

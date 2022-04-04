@@ -47,6 +47,7 @@
   },
   "homepage": "https://github.com/AdamcOkay/sevalo-website#readme",
   "dependencies": {
+    "imask": "^6.4.2",
     "swiper": "^8.0.7"
   }
 }

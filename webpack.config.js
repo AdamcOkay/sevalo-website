@@ -10,7 +10,16 @@ const mode =
 // HMR fix
 const target = process.env.NODE_ENV === "production" ? "browserslist" : "web";
 
-const pages = ["catalog", "product", "basket", "success"];
+const pages = [
+  "catalog",
+  "product",
+  "basket",
+  "success",
+  "call",
+  "presentation",
+  "contacts",
+  "city",
+];
 
 // Удаляем хэш, при билде в разработке
 const fileName = (ext) =>

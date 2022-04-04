@@ -1,5 +1,6 @@
 import "../scss/main.scss";
 import Swiper, { Navigation, Pagination } from "swiper";
+import IMask from "imask";
 
 document.addEventListener("DOMContentLoaded", () => {
   // Слайдер на главной странице
@@ -53,6 +54,19 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("scroll", function () {
     if (window.innerWidth > 992) {
       checkOffset();
+    }
+  });
+
+  // маска телефона
+  const phoneInputs = document.querySelectorAll(".phone-input");
+
+  const maskOptions = {
+    mask: "+{7} (000) 000-00-00",
+  };
+
+  phoneInputs.forEach((input) => {
+    if (input) {
+      const mask = IMask(input, maskOptions);
     }
   });
 });

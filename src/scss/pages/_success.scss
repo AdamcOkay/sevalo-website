@@ -1,0 +1,39 @@
+.success-info {
+  padding: 60px 0 80px;
+  max-width: 488px;
+  margin: 0 auto;
+
+  .img-box {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    margin-bottom: 24px;
+  }
+
+  p {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    padding-bottom: 12px;
+  }
+
+  .ui-button {
+    margin-top: 24px;
+  }
+}
+
+.more-products {
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+
+  .more-title {
+    padding: 20px 0;
+    text-transform: unset;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
