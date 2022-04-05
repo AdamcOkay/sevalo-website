@@ -16,6 +16,16 @@
     font-weight: 600;
     line-height: 32px;
     color: #fff;
+
+    @media only screen and (min-width: variables.$xl) {
+      &:hover {
+        color: var(--ui-yellow);
+      }
+    }
+
+    &:active {
+      color: var(--ui-yellow);
+    }
   }
 
   .contacts-title {
@@ -34,6 +44,20 @@
       height: 26px;
       margin-right: 10px;
     }
+
+    @media only screen and (min-width: variables.$xl) {
+      &:hover {
+        .icon svg * {
+          stroke: var(--ui-yellow);
+        }
+      }
+    }
+
+    &:active {
+      .icon * {
+        stroke: var(--ui-yellow);
+      }
+    }
   }
 
   .social-list {
@@ -50,6 +74,20 @@
 
     &:not(:last-of-type) {
       margin-right: 10px;
+    }
+
+    @media only screen and (min-width: variables.$xl) {
+      &:hover {
+        svg * {
+          fill: var(--ui-yellow);
+        }
+      }
+    }
+
+    &:active {
+      * {
+        fill: var(--ui-yellow);
+      }
     }
   }
 
@@ -72,6 +110,16 @@
     a {
       font-weight: 600;
       color: #fff;
+
+      @media only screen and (min-width: variables.$xl) {
+        &:hover {
+          color: var(--ui-yellow);
+        }
+      }
+
+      &:active {
+        color: var(--ui-yellow);
+      }
     }
   }
 

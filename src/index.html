@@ -23,27 +23,33 @@
             <span class="lang-item" data-shown="false">Ru</span>
             <span class="lang-item lang-item--active">Kz</span>
           </a>
-          <ul class="menu">
-            <li class="menu-item">
-              <a href="">Каталог</a>
-              <ul class="sub-menu">
-                <li><a href="/">Погрузчики</a></li>
-                <li><a href="/">Экскаваторы</a></li>
-                <li><a href="/">Автогрейдеры</a></li>
-                <li><a href="/">Экскаваторы-погрузчики</a></li>
-                <li><a href="/">Карьерные самосвалы</a></li>
-                <li><a href="/">Катки</a></li>
-                <li><a href="/">Автокраны</a></li>
-                <li><a href="/">Бульдозеры</a></li>
-                <li><a href="/">Гидромолоты</a></li>
-              </ul>
+          <ul class="menu js-main-menu">
+            <li class="menu-item has-sub-menu js-has-sub-menu">
+              <a href="javascript:void(0)">Каталог</a>
+              <div class="sub-menu js-sub-menu">
+                <ul>
+                  <li><a href="pages/catalog.html">Погрузчики</a></li>
+                  <li><a href="pages/catalog.html">Экскаваторы</a></li>
+                  <li><a href="pages/catalog.html">Автогрейдеры</a></li>
+                  <li>
+                    <a href="pages/catalog.html">Экскаваторы-погрузчики</a>
+                  </li>
+                  <li><a href="pages/catalog.html">Карьерные самосвалы</a></li>
+                  <li><a href="pages/catalog.html">Катки</a></li>
+                  <li><a href="pages/catalog.html">Автокраны</a></li>
+                  <li><a href="pages/catalog.html">Бульдозеры</a></li>
+                  <li><a href="pages/catalog.html">Гидромолоты</a></li>
+                </ul>
+              </div>
             </li>
             <li class="menu-item"><a href="">Сервис и запчасти</a></li>
             <li class="menu-item"><a href="">Аренда Спецтехники Б/У</a></li>
-            <li class="menu-item"><a href="">О компании</a></li>
-            <li class="menu-item"><a href="">Контакты</a></li>
+            <li class="menu-item"><a href="pages/about.html">О компании</a></li>
+            <li class="menu-item">
+              <a href="pages/contacts.html">Контакты</a>
+            </li>
           </ul>
-          <a href="/" class="header-order">заявка</a>
+          <a href="pages/basket.html" class="header-order">заявка</a>
           <button class="hamburger button-reset js-hamburger">
             <div class="hamburger__box">
               <div class="hamburger__inner"></div>
@@ -58,6 +64,7 @@
           <div class="main-slider swiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide main-slide">
+                <a href="pages/basket.html" class="layer-link"></a>
                 <div class="slide-bg">
                   <img src="./assets/main-slider/1.png" alt="1st slide" />
                 </div>
@@ -69,7 +76,10 @@
                     Официальный дистрибьютор спецтехники совместного завода SDLG
                     & VOLVO в Республике Казахстан
                   </p>
-                  <a href="/" class="ui-button ui-button--white">
+                  <a
+                    href="pages/basket.html"
+                    class="ui-button ui-button--white"
+                  >
                     <span class="arrow">
                       <!-- prettier-ignore -->
                       <svg width="32" height="10" viewBox="0 0 32 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -82,6 +92,7 @@
                 </div>
               </div>
               <div class="swiper-slide main-slide">
+                <a href="pages/catalog.html" class="layer-link"></a>
                 <div class="slide-bg">
                   <img src="./assets/main-slider/2.png" alt="1st slide" />
                 </div>
@@ -92,7 +103,10 @@
                     что выемка материала производится подвижным рабочим органом
                     при неподвижном шасси.
                   </p>
-                  <a href="/" class="ui-button ui-button--white">
+                  <a
+                    href="pages/catalog.html"
+                    class="ui-button ui-button--white"
+                  >
                     <span class="arrow">
                       <!-- prettier-ignore -->
                       <svg width="32" height="10" viewBox="0 0 32 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -105,6 +119,7 @@
                 </div>
               </div>
               <div class="swiper-slide main-slide">
+                <a href="/" class="layer-link"></a>
                 <div class="slide-bg">
                   <img src="./assets/main-slider/2.png" alt="1st slide" />
                 </div>
@@ -213,63 +228,72 @@
           <h2>Каталог техники</h2>
 
           <div class="catalog-list">
-            <a href="/" class="catalog-item catalog-item--wide">
+            <a
+              href="pages/catalog.html"
+              class="catalog-item catalog-item--wide"
+            >
               <!-- prettier-ignore -->
               <div class="item-bg">
                 <img src="./assets/products/grid/1.png" srcset="./assets/products/grid/retina/1.png 2x" alt="product">
               </div>
               <h3 class="item-title">Погрузчики</h3>
             </a>
-            <a href="/" class="catalog-item catalog-item--wide">
+            <a
+              href="pages/catalog.html"
+              class="catalog-item catalog-item--wide"
+            >
               <!-- prettier-ignore -->
               <div class="item-bg">
                 <img src="./assets/products/grid/2.png" srcset="./assets/products/grid/retina/2.png 2x" alt="product">
               </div>
               <h3 class="item-title">ЭКСКАВАТОРЫ</h3>
             </a>
-            <a href="/" class="catalog-item">
+            <a href="pages/catalog.html" class="catalog-item">
               <!-- prettier-ignore -->
               <div class="item-bg">
                 <img src="./assets/products/grid/3.png" srcset="./assets/products/grid/retina/3.png 2x" alt="product">
               </div>
               <h3 class="item-title">АВТОГРЕЙДЕРЫ</h3>
             </a>
-            <a href="/" class="catalog-item catalog-item--wide">
+            <a
+              href="pages/catalog.html"
+              class="catalog-item catalog-item--wide"
+            >
               <!-- prettier-ignore -->
               <div class="item-bg">
                 <img src="./assets/products/grid/4.png" srcset="./assets/products/grid/retina/4.png 2x" alt="product">
               </div>
               <h3 class="item-title">ЭКСКАВАТОРЫ-ПОГРУЗЧИКИ</h3>
             </a>
-            <a href="/" class="catalog-item">
+            <a href="pages/catalog.html" class="catalog-item">
               <!-- prettier-ignore -->
               <div class="item-bg">
                 <img src="./assets/products/grid/5.png" srcset="./assets/products/grid/retina/5.png 2x" alt="product">
               </div>
               <h3 class="item-title">КАРЬЕРНЫЕ САМОСВАЛЫ</h3>
             </a>
-            <a href="/" class="catalog-item">
+            <a href="pages/catalog.html" class="catalog-item">
               <!-- prettier-ignore -->
               <div class="item-bg">
                 <img src="./assets/products/grid/6.png" srcset="./assets/products/grid/retina/6.png 2x" alt="product">
               </div>
               <h3 class="item-title">Катки</h3>
             </a>
-            <a href="/" class="catalog-item">
+            <a href="pages/catalog.html" class="catalog-item">
               <!-- prettier-ignore -->
               <div class="item-bg">
                 <img src="./assets/products/grid/7.png" srcset="./assets/products/grid/retina/7.png 2x" alt="product">
               </div>
               <h3 class="item-title">Автокраны</h3>
             </a>
-            <a href="/" class="catalog-item">
+            <a href="pages/catalog.html" class="catalog-item">
               <!-- prettier-ignore -->
               <div class="item-bg">
                 <img src="./assets/products/grid/8.png" srcset="./assets/products/grid/retina/8.png 2x" alt="product">
               </div>
               <h3 class="item-title">Бульдозеры</h3>
             </a>
-            <a href="/" class="catalog-item">
+            <a href="pages/catalog.html" class="catalog-item">
               <!-- prettier-ignore -->
               <div class="item-bg">
                 <img src="./assets/products/grid/9.png" srcset="./assets/products/grid/retina/9.png 2x" alt="product">
@@ -286,7 +310,7 @@
               оптимальный вариант и составит коммерческое предложение
             </p>
           </div>
-          <a href="" class="ui-button ui-button--black">
+          <a href="pages/presentation.html" class="ui-button ui-button--black">
             <span class="arrow">
               <!-- prettier-ignore -->
               <svg width="32" height="10" viewBox="0 0 32 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -308,7 +332,7 @@
               <li>12 лет на рынке</li>
               <li>Сервисный центр</li>
             </ul>
-            <a href="/" class="ui-button ui-button--white">
+            <a href="pages/contacts.html" class="ui-button ui-button--white">
               <span class="arrow">
                 <!-- prettier-ignore -->
                 <svg width="32" height="10" viewBox="0 0 32 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -327,15 +351,15 @@
         <nav class="footer-list">
           <div class="list-item">
             <ul>
-              <li><a href="">Погрузчики</a></li>
-              <li><a href="">Экскаваторы</a></li>
-              <li><a href="">Автогрейдеры</a></li>
-              <li><a href="">Экскаваторы-погрузчики</a></li>
-              <li><a href="">Карьерные самосвалы</a></li>
-              <li><a href="">Катки</a></li>
-              <li><a href="">Автокраны</a></li>
-              <li><a href="">Бульдозеры</a></li>
-              <li><a href="">Гидромолоты</a></li>
+              <li><a href="pages/catalog.html">Погрузчики</a></li>
+              <li><a href="pages/catalog.html">Экскаваторы</a></li>
+              <li><a href="pages/catalog.html">Автогрейдеры</a></li>
+              <li><a href="pages/catalog.html">Экскаваторы-погрузчики</a></li>
+              <li><a href="pages/catalog.html">Карьерные самосвалы</a></li>
+              <li><a href="pages/catalog.html">Катки</a></li>
+              <li><a href="pages/catalog.html">Автокраны</a></li>
+              <li><a href="pages/catalog.html">Бульдозеры</a></li>
+              <li><a href="pages/catalog.html">Гидромолоты</a></li>
             </ul>
           </div>
           <div class="list-item">
@@ -352,10 +376,10 @@
           </div>
           <div class="list-item">
             <ul>
-              <li><a href="">О компании</a></li>
+              <li><a href="pages/about.html">О компании</a></li>
               <li><a href="">Производитель</a></li>
               <li><a href="">Преимущества</a></li>
-              <li><a href="">Новости</a></li>
+              <li><a href="pages/news.html">Новости</a></li>
             </ul>
           </div>
           <div class="list-item">

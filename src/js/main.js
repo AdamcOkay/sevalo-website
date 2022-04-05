@@ -1,8 +1,38 @@
 import "../scss/main.scss";
-import Swiper, { Navigation, Pagination } from "swiper";
+import Swiper, { FreeMode, Pagination, Thumbs } from "swiper";
 import IMask from "imask";
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Скрипт вызова/скрытия меню
+  const body = document.querySelector("body"),
+    hamburger = document.querySelector(".js-hamburger"),
+    mainMenu = document.querySelector(".js-main-menu"),
+    hasSubMenu = mainMenu.querySelectorAll(".js-has-sub-menu");
+
+  if (mainMenu) {
+    hamburger.addEventListener("click", (e) => {
+      const target = e.currentTarget;
+
+      body.classList.toggle("no-scroll");
+      target.classList.toggle("hamburger--active");
+      mainMenu.classList.toggle("menu--opened");
+    });
+
+    hasSubMenu.forEach((item) => {
+      item.addEventListener("click", () => {
+        const subMenu = item.querySelector(".js-sub-menu");
+
+        if (item.classList.contains("has-sub-menu--opened")) {
+          item.classList.remove("has-sub-menu--opened");
+          slideUp(subMenu, 300);
+        } else {
+          item.classList.add("has-sub-menu--opened");
+          slideDown(subMenu, 300);
+        }
+      });
+    });
+  }
+
   // Слайдер на главной странице
   const mainSlider = new Swiper(".main-slider", {
     loop: true,
@@ -11,13 +41,51 @@ document.addEventListener("DOMContentLoaded", () => {
     slidesPerView: "auto",
     preventClicksPropagation: false,
     threshold: 10,
-    modules: [Navigation, Pagination],
+    modules: [Pagination],
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
       renderBullet: function (index, className) {
         return '<span class="' + className + '">' + (index + 1) + "</span>";
       },
+    },
+  });
+
+  // Слайдер на странице о компании
+  const aboutSlider = new Swiper(".about-slider", {
+    loop: true,
+    spaceBetween: 15,
+    slidesPerView: 1,
+    preventClicksPropagation: false,
+    threshold: 10,
+    modules: [Pagination],
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      type: "bullets",
+    },
+  });
+
+  // Слайдер на странице продукта
+  const thumbSlider = new Swiper(".thumbnails-slider", {
+    spaceBetween: 10,
+    slidesPerView: "auto",
+    preventClicksPropagation: false,
+    threshold: 10,
+    modules: [FreeMode],
+    freeMode: true,
+    watchSlidesProgress: true,
+  });
+
+  const productSlider = new Swiper(".product-preview", {
+    loop: true,
+    spaceBetween: 10,
+    slidesPerView: 1,
+    preventClicksPropagation: false,
+    threshold: 10,
+    modules: [Thumbs],
+    thumbs: {
+      swiper: thumbSlider,
     },
   });
 
@@ -68,5 +136,124 @@ document.addEventListener("DOMContentLoaded", () => {
     if (input) {
       const mask = IMask(input, maskOptions);
     }
+  });
+
+  // аккордеоны
+  const accordionButtons = document.querySelectorAll(".accordion__text");
+
+  function slideDown(target, duration = 500) {
+    target.style.removeProperty("display");
+    let display = window.getComputedStyle(target).display;
+
+    if (display === "none") {
+      display = "block";
+    }
+    target.style.display = display;
+
+    let height = target.offsetHeight;
+
+    target.style.overflow = "hidden";
+    target.style.height = "0";
+    target.style.paddingTop = "0";
+    target.style.paddingBottom = "0";
+    target.style.marginTop = "0";
+    target.style.marginBottom = "0";
+    target.offsetHeight;
+    target.style.transitionProperty = "height, margin, padding";
+    target.style.transitionDuration = duration + "ms";
+    target.style.height = height + "px";
+    target.style.removeProperty("padding-top");
+    target.style.removeProperty("padding-bottom");
+    target.style.removeProperty("margin-top");
+    target.style.removeProperty("margin-bottom");
+
+    window.setTimeout(() => {
+      target.style.removeProperty("height");
+      target.style.removeProperty("overflow");
+      target.style.removeProperty("transition-duration");
+      target.style.removeProperty("transition-property");
+    }, duration);
+  }
+
+  function slideUp(target, duration = 500) {
+    target.style.transitionProperty = "height, margin, padding";
+    target.style.transitionDuration = duration + "ms";
+    target.style.height = target.offsetHeight + "px";
+    target.offsetHeight;
+    target.style.overflow = "hidden";
+    target.style.height = "0";
+    target.style.paddingTop = "0";
+    target.style.paddingBottom = "0";
+    target.style.marginTop = "0";
+    target.style.marginBottom = "0";
+
+    window.setTimeout(() => {
+      target.style.display = "none";
+      target.style.removeProperty("height");
+      target.style.removeProperty("padding-top");
+      target.style.removeProperty("padding-bottom");
+      target.style.removeProperty("margin-top");
+      target.style.removeProperty("margin-bottom");
+      target.style.removeProperty("overflow");
+      target.style.removeProperty("transition-duration");
+      target.style.removeProperty("transition-property");
+    }, duration);
+  }
+
+  accordionButtons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      let target = e.currentTarget;
+      let accordion = target.parentNode;
+
+      if (!accordion) return;
+      accordion.classList.toggle("accordion-active");
+
+      let panel = target.nextElementSibling;
+
+      if (!panel) return;
+
+      if (accordion.classList.contains("accordion-active")) {
+        slideDown(panel, 300);
+      } else {
+        slideUp(panel, 300);
+      }
+    });
+  });
+
+  // Модалки
+  const closeModal = (modalName) => {
+    const body = document.querySelector("body"),
+      modal = document.querySelector(`[data-modal="${modalName}"]`);
+
+    if (!modal) return;
+
+    modal.classList.remove("ui-modal--active");
+    body.classList.remove("no-scroll");
+  };
+
+  const callModal = (modalName) => {
+    const body = document.querySelector("body"),
+      modal = document.querySelector(`[data-modal="${modalName}"]`);
+
+    if (!modal) return;
+
+    modal.classList.add("ui-modal--active");
+    body.classList.add("no-scroll");
+
+    modal.addEventListener("click", (e) => {
+      const target = e.target;
+
+      if (target.getAttribute("data-modal-setting") === "closeModal") {
+        closeModal(modalName);
+      }
+    });
+  };
+
+  const modalButtons = document.querySelectorAll("[data-call]");
+
+  modalButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      callModal(btn.dataset.call);
+    });
   });
 });

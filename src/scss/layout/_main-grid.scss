@@ -22,6 +22,7 @@
 
   .item-bg {
     line-height: 0;
+    transition: transform 0.1s ease;
   }
 
   img {
@@ -38,11 +39,34 @@
     line-height: 123%;
     text-transform: uppercase;
     color: #fff;
+    transition: color 0.1s ease;
 
     @media only screen and (min-width: variables.$lg) {
       left: 20px;
       font-size: 26px;
       line-height: 32px;
+    }
+  }
+
+  @media only screen and (min-width: variables.$xl) {
+    &:hover {
+      .item-title {
+        color: var(--ui-yellow) !important;
+      }
+
+      .item-bg {
+        transform: scale(0.98);
+      }
+    }
+  }
+
+  &:active {
+    .item-title {
+      color: var(--ui-yellow) !important;
+    }
+
+    .item-bg {
+      transform: scale(0.98);
     }
   }
 }

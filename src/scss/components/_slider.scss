@@ -1,6 +1,8 @@
 @use "../abstracts/variables";
 
-.swiper {
+.main-slider {
+  padding-bottom: 15px;
+
   .swiper-slide {
     transform: scale(0.95);
     transition: transform 0.3s ease;
@@ -72,6 +74,10 @@
         background-color: var(--ui-yellow);
       }
 
+      &:active {
+        background-color: #ffc329;
+      }
+
       &:not(:last-of-type) {
         border-right: 1px solid #efefef;
       }
@@ -82,10 +88,6 @@
       color: #bfbfbf;
     }
   }
-}
-
-.main-slider {
-  padding-bottom: 15px;
 
   .ui-button {
     display: none;
@@ -114,6 +116,15 @@
   color: #fff;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
 
+  .layer-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+  }
+
   @media only screen and (min-width: variables.$sm) {
     max-width: var(--max-width-sm);
   }
@@ -125,6 +136,10 @@
   @media only screen and (min-width: variables.$lg) {
     max-width: var(--max-width-lg);
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.25);
+
+    .layer-link {
+      display: none;
+    }
   }
 
   @media only screen and (min-width: variables.$xl) {
@@ -192,5 +207,76 @@
     margin-bottom: 30px;
     font-size: 20px;
     line-height: 30px;
+  }
+}
+
+.about-slider {
+  max-width: 944px;
+  margin: 0 auto;
+
+  .about-slide {
+    text-align: center;
+    padding-bottom: 60px;
+
+    img {
+      display: block;
+      width: 100%;
+      border-radius: 15px;
+
+      @media only screen and (min-width: variables.$lg) {
+        width: calc(100% - 75px);
+        filter: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.25));
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .swiper-pagination {
+    position: absolute;
+    display: flex;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+
+  .swiper-pagination-bullet {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: rgba(var(--ui-yellow), 0);
+    box-shadow: inset 0 0 0 2px var(--ui-yellow);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:not(:last-of-type) {
+      margin-right: 10px;
+    }
+
+    &-active {
+      box-shadow: inset 0 0 0 10px var(--ui-yellow);
+    }
+  }
+}
+
+.product-preview {
+  margin-bottom: 20px;
+
+  .product-image {
+    img {
+      border-radius: 15px;
+    }
+  }
+}
+.thumbnails-slider {
+  .thumbnail {
+    width: 82px;
+    cursor: pointer;
+    transition: opacity 0.1s ease;
+  }
+
+  .swiper-slide-thumb-active {
+    opacity: 0.5;
   }
 }

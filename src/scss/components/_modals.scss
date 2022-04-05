@@ -1,0 +1,84 @@
+@use "../abstracts/variables";
+
+.ui-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+  transition: all 0.3s linear;
+  z-index: 5;
+}
+
+.ui-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+  height: 250px;
+  background: var(--ui-yellow);
+  border-radius: 20px;
+  color: #000;
+  transition: all 0.3s ease-in-out;
+  z-index: 6;
+
+  iframe {
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
+    border-radius: 15px;
+  }
+
+  @media only screen and (min-width: variables.$md) {
+    width: 600px;
+    height: 400px;
+  }
+}
+
+.ui-modal-close {
+  position: absolute;
+  top: -28px;
+  right: 10px;
+  width: 18px;
+  height: 18px;
+
+  img,
+  svg,
+  svg path {
+    pointer-events: none;
+  }
+
+  @media only screen and (min-width: variables.$md) {
+    top: 5px;
+    right: -33px;
+  }
+
+  @media only screen and (min-width: variables.$xl) {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+.ui-modal--active {
+  visibility: visible;
+  opacity: 1;
+
+  transform: scale(1);
+
+  .ui-modal-content {
+    transform: translate(-50%, -50%);
+  }
+}

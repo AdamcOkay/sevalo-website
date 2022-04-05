@@ -54,6 +54,16 @@ header {
 
   @media only screen and (min-width: variables.$xl) {
     margin-right: 20px;
+
+    &:hover {
+      background: #000;
+      color: var(--ui-yellow);
+    }
+  }
+
+  &:active {
+    background: #1b1b1b;
+    color: var(--ui-yellow);
   }
 }
 
@@ -68,40 +78,94 @@ header {
   font-weight: 900;
   text-transform: uppercase;
   color: #fff;
+  transition: transform 0.1s linear;
 
   @media only screen and (min-width: variables.$lg) {
     padding: 8px 15px;
     box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.25);
     font-size: 13px;
     line-height: 20px;
+
+    &:hover {
+      background: #1b1b1b;
+      color: var(--ui-yellow);
+      transform: scale(0.95);
+    }
+  }
+
+  &:active {
+    background: #1b1b1b;
+    box-shadow: none;
+    color: var(--ui-yellow);
   }
 }
 
 .menu {
+  @include mixins.list-reset;
   position: fixed;
   top: 0;
   left: 0;
   display: none;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   width: 100%;
   height: 100%;
+  padding-top: 100px;
   background: var(--ui-yellow);
-  @include mixins.list-reset;
+  overflow-y: auto;
 
-  ul {
-    display: none;
-    @include mixins.list-reset;
+  .menu-item {
+    position: relative;
+    width: 100%;
   }
 
   a {
     display: block;
-    padding: 5px 10px;
+    text-transform: uppercase;
+    padding: 10px 25px 10px 15px;
     font-size: 20px;
     font-weight: 900;
     line-height: 150%;
     color: var(--ui-black);
+  }
+
+  .has-sub-menu {
+    &::after {
+      content: "";
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 20px;
+      height: 7px;
+      background: url("../assets/menu-angle.svg") no-repeat;
+      background-size: 100% 100%;
+      transition: transform 0.1s ease;
+    }
+  }
+
+  .sub-menu {
+    display: none;
+    padding: 0 15px;
+
+    ul {
+      @include mixins.list-reset;
+      display: block;
+    }
+
+    a {
+      padding: 0;
+      margin: 0;
+      text-transform: unset;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 32px;
+    }
+  }
+
+  .has-sub-menu--opened {
+    &::after {
+      transform: rotate(180deg);
+    }
   }
 
   @media only screen and (min-width: variables.$xl) {
@@ -110,12 +174,85 @@ header {
     height: auto;
     display: flex;
     flex-direction: row;
+    padding-top: 0;
+    overflow: visible;
     margin-right: auto;
 
-    a {
+    .menu-item {
+      width: auto;
       margin-right: 5px;
+    }
+
+    a {
+      padding: 5px 10px;
       font-size: 13px;
       line-height: 20px;
     }
+
+    .has-sub-menu {
+      &::after {
+        display: none;
+      }
+    }
+
+    .sub-menu {
+      padding-top: 7px;
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 15px solid black;
+      }
+
+      ul {
+        @include mixins.list-reset;
+        display: block;
+        width: 271px;
+        padding: 20px;
+        background: #000;
+        border-radius: 15px;
+      }
+
+      a {
+        padding: 0;
+        margin: 0;
+        text-transform: unset;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 32px;
+        color: #fff;
+      }
+    }
+
+    .menu-item:hover {
+      a {
+        background: #000;
+        border-radius: 20px;
+        color: #fff;
+      }
+
+      .sub-menu {
+        display: block;
+      }
+    }
+
+    .sub-menu li a:hover {
+      color: var(--ui-yellow);
+    }
   }
+}
+
+.menu--opened {
+  display: flex;
 }

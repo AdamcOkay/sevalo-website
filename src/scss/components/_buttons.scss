@@ -19,6 +19,7 @@
   .arrow {
     width: 32px;
     margin-right: 5px;
+    transition: all 0.1s linear;
   }
 
   .arrow svg * {
@@ -43,6 +44,57 @@
     font-size: 15px;
     line-height: 24px;
   }
+
+  @media only screen and (min-width: variables.$xl) {
+    &:hover {
+      background: #ffc329;
+
+      .arrow {
+        margin-right: 15px;
+      }
+    }
+  }
+
+  &:active {
+    background: #ffc329;
+    box-shadow: none;
+  }
+}
+
+.ui-button--white {
+  @media only screen and (min-width: variables.$xl) {
+    &:hover {
+      background: var(--ui-yellow);
+    }
+  }
+
+  &:active {
+    background: #ffc329;
+    box-shadow: none;
+  }
+}
+
+.ui-button--black {
+  @media only screen and (min-width: variables.$xl) {
+    &:hover {
+      background: #1b1b1b;
+      color: var(--ui-yellow);
+
+      .arrow * {
+        fill: var(--ui-yellow);
+      }
+    }
+  }
+
+  &:active {
+    background: #1b1b1b;
+    color: var(--ui-yellow);
+    box-shadow: none;
+
+    .arrow * {
+      fill: var(--ui-yellow);
+    }
+  }
 }
 
 .link-button {
@@ -64,5 +116,18 @@
     align-items: center;
     justify-content: center;
     margin-right: 10px;
+  }
+
+  @media only screen and (min-width: variables.$xl) {
+    &:hover {
+      border-color: var(--ui-yellow);
+      color: var(--ui-yellow);
+
+      .icon {
+        * {
+          stroke: var(--ui-yellow);
+        }
+      }
+    }
   }
 }

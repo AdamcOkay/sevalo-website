@@ -1,0 +1,66 @@
+@use "../abstracts/variables";
+
+.why-us {
+  margin: 20px auto;
+  padding: 30px 20px;
+  background: var(--ui-yellow);
+  border-radius: 15px;
+  color: #000;
+
+  @media only screen and (min-width: variables.$lg) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+    row-gap: 30px;
+    margin: 40px auto;
+    padding: 40px 30px;
+  }
+}
+
+.why-us-item {
+  display: flex;
+
+  &:not(:last-of-type) {
+    margin-bottom: 20px;
+  }
+
+  .icon {
+    margin-right: 10px;
+    flex-basis: 40px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    height: 40px;
+  }
+
+  .why-us-title {
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 125%;
+  }
+
+  .why-us-text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 133%;
+  }
+
+  @media only screen and (min-width: variables.$lg) {
+    &:not(:last-of-type) {
+      margin-bottom: 0;
+    }
+
+    .icon {
+      margin-right: 25px;
+    }
+
+    .why-us-title {
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .why-us-text {
+      font-size: 18px;
+    }
+  }
+}

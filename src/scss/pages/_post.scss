@@ -21,6 +21,8 @@
 .content-wrapper {
   max-width: 944px;
   margin: 0 auto;
+  font-size: 16px;
+  line-height: 20px;
 
   @media only screen and (min-width: variables.$lg) {
     padding: 0 75px;
@@ -31,6 +33,7 @@
     font-weight: 300;
     font-size: 16px;
     line-height: 20px;
+
     @media only screen and (min-width: variables.$lg) {
       margin-bottom: 30px;
       font-size: 20px;

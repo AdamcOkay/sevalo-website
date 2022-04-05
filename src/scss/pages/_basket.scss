@@ -55,7 +55,7 @@
       color: #000;
     }
 
-    @media only screen and (min-width: variables.$lg) {
+    @media only screen and (min-width: variables.$xl) {
       grid-template-areas: "form-thumb form-name form-method form-amount";
     }
   }
@@ -89,18 +89,27 @@
     font-size: 18px;
     line-height: 20px;
     font-weight: 500;
+    text-align: center;
+
+    @media only screen and (min-width: variables.$lg) {
+      text-align-last: left;
+    }
   }
 
   .form-amount {
     display: flex;
     align-items: start;
+    justify-content: center;
     grid-area: form-amount;
 
     .controls {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-right: 95px;
+
+      @media only screen and (min-width: variables.$lg) {
+        padding-right: 95px;
+      }
     }
 
     input {
@@ -120,10 +129,29 @@
       height: 50px;
       border-radius: 50%;
       background: #fff;
+      transition: background-color 0.1s linear;
 
       &:disabled {
         pointer-events: none;
         opacity: 0.25;
+      }
+
+      @media only screen and (min-width: variables.$xl) {
+        &:hover {
+          background-color: #000;
+
+          svg * {
+            fill: #fff;
+          }
+        }
+      }
+
+      &:active {
+        background-color: #1b1b1b;
+
+        svg * {
+          fill: #fff;
+        }
       }
     }
   }

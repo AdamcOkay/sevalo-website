@@ -25,6 +25,8 @@
   font-weight: 900;
   font-size: 14px;
   line-height: 20px;
+  text-decoration: none;
+  color: #000;
 
   &:not(:last-child) {
     border-right: 1px solid #efefef;
@@ -32,6 +34,11 @@
 
   &:hover {
     background: var(--ui-yellow);
+  }
+
+  &:active {
+    background: #ffc329;
+    color: #000;
   }
 }
 
