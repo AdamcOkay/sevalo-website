@@ -1,0 +1,40 @@
+@use "../abstracts/variables";
+
+.post-page {
+  padding: 30px 0 150px;
+
+  h1 {
+    @media only screen and (min-width: variables.$lg) {
+      font-size: 50px;
+    }
+  }
+
+  .post-image {
+    margin-bottom: 40px;
+    img {
+      border-radius: 15px;
+      filter: drop-shadow(0px 5px 25px rgba(0, 0, 0, 0.25));
+    }
+  }
+}
+
+.content-wrapper {
+  max-width: 944px;
+  margin: 0 auto;
+
+  @media only screen and (min-width: variables.$lg) {
+    padding: 0 75px;
+  }
+
+  p {
+    margin-bottom: 20px;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 20px;
+    @media only screen and (min-width: variables.$lg) {
+      margin-bottom: 30px;
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+}

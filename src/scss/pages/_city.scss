@@ -19,8 +19,6 @@
   }
 
   h1 {
-    margin-bottom: 20px;
-
     @media only screen and (min-width: variables.$lg) {
       margin-bottom: 50px;
     }

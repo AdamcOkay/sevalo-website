@@ -19,6 +19,9 @@ const pages = [
   "presentation",
   "contacts",
   "city",
+  "news",
+  "post",
+  "about"
 ];
 
 // Удаляем хэш, при билде в разработке

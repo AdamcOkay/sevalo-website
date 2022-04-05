@@ -1,0 +1,11 @@
+@forward "../components/pagination";
+
+@use "../abstracts/variables";
+
+.news-catalog {
+  padding: 44px 0 100px;
+
+  @media only screen and (min-width: variables.$lg) {
+    margin-bottom: 50px;
+  }
+}
