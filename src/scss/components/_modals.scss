@@ -19,9 +19,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 95%;
   height: 250px;
   background: var(--ui-yellow);
@@ -29,6 +26,14 @@
   color: #000;
   transition: all 0.3s ease-in-out;
   z-index: 6;
+
+  .frame-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
 
   iframe {
     width: 90%;

@@ -66,6 +66,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
     padding: 30px 25px;
     border-bottom: 1px solid rgba(#fff, 0.2);
     font-weight: 700;
@@ -77,9 +78,55 @@
       height: 35px;
     }
 
+    &::before {
+      content: "";
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 100%;
+      height: calc(100% - 10px);
+      background: var(--ui-yellow);
+      border-radius: 20px;
+      transition: opacity 0.1s ease;
+      z-index: -1;
+    }
+
     @media only screen and (min-width: variables.$lg) {
       font-size: 30px;
       line-height: 35px;
+    }
+
+    @media only screen and (min-width: variables.$xl) {
+      &:hover {
+        color: #000;
+
+        &:before {
+          opacity: 1;
+        }
+
+        .icon {
+          img {
+            filter: brightness(0);
+          }
+        }
+      }
+    }
+
+    &:active {
+      color: #000;
+
+      &:before {
+        opacity: 1;
+        background: #ffc329;
+      }
+
+      .icon {
+        img {
+          filter: brightness(0);
+        }
+      }
     }
   }
 }

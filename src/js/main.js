@@ -229,6 +229,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     modal.classList.remove("ui-modal--active");
     body.classList.remove("no-scroll");
+
+    // Нужно, чтобы видео не проигрывалось после закрытия модалки
+    if (modalName === "videoModal") {
+      const framebox = modal.querySelector(".js-frame-box"),
+        iframe = framebox.innerHTML;
+
+      framebox.innerHTML = "";
+      framebox.innerHTML = iframe;
+    }
   };
 
   const callModal = (modalName) => {
@@ -256,4 +265,37 @@ document.addEventListener("DOMContentLoaded", () => {
       callModal(btn.dataset.call);
     });
   });
+
+  const productAmount = document.querySelector(".js-product-amount"),
+    controlButtons = document.querySelectorAll(".js-control-button");
+
+  if (productAmount) {
+    controlButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const decrementBtn = document.querySelector(
+            '.js-control-button[data-behavior="decrement"]'
+          ),
+          behavior = btn.dataset.behavior,
+          minVal = parseInt(productAmount.dataset.minValue);
+
+        let curVal = parseInt(productAmount.value);
+
+        if (behavior === "increment") {
+          curVal++;
+        }
+
+        if (behavior === "decrement" && curVal > minVal) {
+          curVal--;
+        }
+
+        if (curVal > minVal) {
+          decrementBtn.disabled = false;
+        } else {
+          decrementBtn.disabled = true;
+        }
+
+        productAmount.value = curVal;
+      });
+    });
+  }
 });

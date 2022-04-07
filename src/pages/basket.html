@@ -44,12 +44,30 @@
                 </ul>
               </div>
             </li>
-            <li class="menu-item"><a href="">Сервис и запчасти</a></li>
+            <li class="menu-item has-sub-menu js-has-sub-menu">
+              <a href="javascript:void(0)">Сервис и запчасти</a>
+              <div class="sub-menu js-sub-menu">
+                <ul>
+                  <li><a href="">Сервисное обслуживание</a></li>
+                  <li><a href="">Запасные части</a></li>
+                </ul>
+              </div>
+            </li>
             <li class="menu-item"><a href="">Аренда Спецтехники Б/У</a></li>
-            <li class="menu-item"><a href="about.html">О компании</a></li>
+            <li class="menu-item has-sub-menu js-has-sub-menu">
+              <a href="javascript:void(0)">О компании</a>
+              <div class="sub-menu js-sub-menu">
+                <ul>
+                  <li><a href="about.html">О нас</a></li>
+                  <li><a href="">Производитель</a></li>
+                  <li><a href="">Преимущества</a></li>
+                  <li><a href="news.html">Новости</a></li>
+                </ul>
+              </div>
+            </li>
             <li class="menu-item"><a href="contacts.html">Контакты</a></li>
           </ul>
-          <a href="basket.html" class="header-order">заявка</a>
+          <a href="call.html" class="header-order">заявка</a>
           <button class="hamburger button-reset js-hamburger">
             <div class="hamburger__box">
               <div class="hamburger__inner"></div>
@@ -81,7 +99,7 @@
                     </svg>
                   </button>
                   <!-- prettier-ignore -->
-                  <input type="text" name="amount" value="1" class="form-amount js-product-amount" readonly required>
+                  <input type="text" name="amount" value="1" data-min-value="1" class="form-amount js-product-amount" readonly required>
                   <!-- prettier-ignore -->
                   <button class="control-button js-control-button" data-behavior="increment" type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -91,12 +109,12 @@
                   </button>
                 </div>
                 <!-- prettier-ignore -->
-                <button type="button" class="delete-button js-delete-button">
+                <a href="./catalog.html" class="delete-button">
                   <svg xmlns="http://www.w3.org/2000/svg" width="29" height="30" viewBox="0 0 29 30" fill="none">
                     <rect x="5.65625" y="9.34326" width="4" height="20" rx="2" transform="rotate(-45 5.65625 9.34326)" fill="black"/>
                     <rect x="19.7988" y="6.51465" width="4" height="20" rx="2" transform="rotate(45 19.7988 6.51465)" fill="black"/>
                   </svg>
-                </button>
+                </a>
               </div>
             </div>
             <div class="form-wrapper">
