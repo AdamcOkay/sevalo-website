@@ -1,5 +1,5 @@
 import "../scss/main.scss";
-import Swiper, { FreeMode, Pagination, Thumbs } from "swiper";
+import Swiper, { FreeMode, Pagination, Thumbs, Navigation } from "swiper";
 import IMask from "imask";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -18,19 +18,21 @@ document.addEventListener("DOMContentLoaded", () => {
       mainMenu.classList.toggle("menu--opened");
     });
 
-    hasSubMenu.forEach((item) => {
-      item.addEventListener("click", () => {
-        const subMenu = item.querySelector(".js-sub-menu");
+    if (window.innerWidth < 1200) {
+      hasSubMenu.forEach((item) => {
+        item.addEventListener("click", () => {
+          const subMenu = item.querySelector(".js-sub-menu");
 
-        if (item.classList.contains("has-sub-menu--opened")) {
-          item.classList.remove("has-sub-menu--opened");
-          slideUp(subMenu, 300);
-        } else {
-          item.classList.add("has-sub-menu--opened");
-          slideDown(subMenu, 300);
-        }
+          if (item.classList.contains("has-sub-menu--opened")) {
+            item.classList.remove("has-sub-menu--opened");
+            slideUp(subMenu, 300);
+          } else {
+            item.classList.add("has-sub-menu--opened");
+            slideDown(subMenu, 300);
+          }
+        });
       });
-    });
+    }
   }
 
   // Слайдер на главной странице
@@ -58,36 +60,59 @@ document.addEventListener("DOMContentLoaded", () => {
     slidesPerView: 1,
     preventClicksPropagation: false,
     threshold: 10,
-    modules: [Pagination],
+    modules: [Navigation, Pagination],
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
       type: "bullets",
     },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
   });
 
   // Слайдер на странице продукта
-  const thumbSlider = new Swiper(".thumbnails-slider", {
-    spaceBetween: 10,
-    slidesPerView: "auto",
-    preventClicksPropagation: false,
-    threshold: 10,
-    modules: [FreeMode],
-    freeMode: true,
-    watchSlidesProgress: true,
-  });
 
-  const productSlider = new Swiper(".product-preview", {
-    loop: true,
-    spaceBetween: 10,
-    slidesPerView: 1,
-    preventClicksPropagation: false,
-    threshold: 10,
-    modules: [Thumbs],
-    thumbs: {
-      swiper: thumbSlider,
-    },
-  });
+  const thumbnailsContainer = document.querySelector(
+      ".js-thumbnails-container"
+    ),
+    thumbnailsWrapper = document.querySelector(".js-thumbnails-wrapper");
+
+  if (thumbnailsContainer) {
+    let slidesAmount = 6;
+
+    // Меняем верстку, если больше 6 слайдов
+    if (thumbnailsWrapper.children.length > 6) {
+      slidesAmount = 5;
+      thumbnailsContainer.classList.add("thumbnails-container--arrows");
+    }
+
+    const thumbSlider = new Swiper(".thumbnails-slider", {
+      spaceBetween: 10,
+      slidesPerView: slidesAmount,
+      preventClicksPropagation: false,
+      threshold: 10,
+      modules: [Navigation],
+      watchSlidesProgress: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+
+    const productSlider = new Swiper(".product-preview", {
+      loop: true,
+      spaceBetween: 10,
+      slidesPerView: 1,
+      preventClicksPropagation: false,
+      threshold: 10,
+      modules: [Thumbs],
+      thumbs: {
+        swiper: thumbSlider,
+      },
+    });
+  }
 
   // Липкий элемент на странице продукта
   const productFixed = document.querySelector(".product-fixed");
@@ -120,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   document.addEventListener("scroll", function () {
-    if (window.innerWidth > 992) {
+    if (window.innerWidth >= 1200) {
       checkOffset();
     }
   });

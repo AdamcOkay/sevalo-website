@@ -3,7 +3,7 @@
 .product-page {
   padding-top: 32px;
 
-  @media only screen and (min-width: variables.$lg) {
+  @media only screen and (min-width: variables.$xl) {
     display: grid;
     grid-template-areas: "info fixed";
     padding-top: 40px;
@@ -18,7 +18,7 @@
   grid-area: fixed;
   max-width: 590px;
 
-  @media only screen and (min-width: variables.$lg) {
+  @media only screen and (min-width: variables.$xl) {
     position: fixed;
     left: calc(50% + 20px);
   }
@@ -32,7 +32,7 @@
 .product-action {
   margin-bottom: 30px;
 
-  @media only screen and (min-width: variables.$lg) {
+  @media only screen and (min-width: variables.$xl) {
     margin-bottom: 0;
     padding: 16px 28px 30px;
     box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.25);
